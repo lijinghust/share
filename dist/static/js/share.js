@@ -180,7 +180,7 @@
                     var opts = {
                         appId: data.appId,
                         timestamp: data.timestamp,
-                        nonceStr: data.nonceStr,
+                        nonceStr: data.noncestr,
                         signature: data.signature
                     }
                     setWechatShare(opts);
