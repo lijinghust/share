@@ -16,5 +16,8 @@ router.get('/404', async ctx => {
 
     await ctx.render('404');
 })
-
+router.get('/MP_verify_VdOJzNFWdx4DgGkw.txt', async ctx =>{
+    await ctx.render('verify');
+})
+    
 module.exports = router;

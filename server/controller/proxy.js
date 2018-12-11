@@ -38,9 +38,9 @@ const sign = async function(url){
         'jsapi_ticket='+jsapi_ticket,
         'noncestr='+noncestr,
         'timestamp='+timestamp,
-        'url='+url
+        'url='+decodeURIComponent(url)
     ].join('')
-
+    console.log(str);
     const signature = sha1(str);
     return {
         appId: APPID,
