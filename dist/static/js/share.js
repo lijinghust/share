@@ -156,17 +156,17 @@
                         link: options.url,
                         imgUrl: options.imgUrl
                     }
+                    if (isNewWechat) {
+                        wx.updateTimelineShareData(shareInfo);
+                        wx.updateAppMessageShareData(shareInfo);
+                    } else {
+                        wx.onMenuShareTimeline(shareInfo);
+                        wx.onMenuShareAppMessage(shareInfo);
+                        wx.onMenuShareQQ(shareInfo);
+                        wx.onMenuShareQZone(shareInfo);
+                    }
+                    wx.onMenuShareWeibo(shareInfo);
                 });
-                if (isNewWechat) {
-                    wx.updateTimelineShareData(shareInfo);
-                    wx.updateAppMessageShareData(shareInfo);
-                } else {
-                    wx.onMenuShareTimeline(shareInfo);
-                    wx.onMenuShareAppMessage(shareInfo);
-                    wx.onMenuShareQQ(shareInfo);
-                    wx.onMenuShareQZone(shareInfo);
-                }
-                wx.onMenuShareWeibo(shareInfo);
             }
             // 获取微信验签数据
             function requestSign(cb){
