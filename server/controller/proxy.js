@@ -34,14 +34,14 @@ const sign = async function(url){
     const json = JSON.parse(ret);
     const jsapi_ticket = json.ticket;
     const timestamp = +new Date();
-    const str = [
+    const arr = [
         'jsapi_ticket='+jsapi_ticket,
         'noncestr='+noncestr,
         'timestamp='+timestamp,
         'url='+decodeURIComponent(url)
-    ].join('')
-    console.log(str);
-    const signature = sha1(str);
+    ].join('&')
+    console.log(arr);
+    const signature = sha1(arr.join('&'));
     return {
         appId: APPID,
         noncestr: noncestr,
@@ -52,7 +52,7 @@ const sign = async function(url){
 
 const proxy = async function(ctx, next){
     const params = ctx.params;
-    // const ret = await getJsApiTicket();
+    console.log(params)
     const ret = await sign(params.url);
     // console.log(ret)
     ctx.response.body = ret;
