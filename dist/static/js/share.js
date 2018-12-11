@@ -171,8 +171,8 @@
             // 获取微信验签数据
             function requestSign(cb){
                 var localUrl = locationl.hred.split('#')[0];
-                var apiUrl = 'xxx';
-                var url = apiUrl + '&url=' + encodeURIComponent(localUrl) + '&_t=' + new Date().getTime();
+                var apiUrl = 'http://39.107.159.85:3000/api/proxy';
+                var url = apiUrl + '?url=' + encodeURIComponent(localUrl) + '&_t=' + new Date().getTime();
                 ajax(url, cb)
             }
             function init(){
