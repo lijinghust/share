@@ -170,7 +170,7 @@
             }
             // 获取微信验签数据
             function requestSign(cb){
-                var localUrl = locationl.hred.split('#')[0];
+                var localUrl = location.href.split('#')[0];
                 var apiUrl = 'http://ws.erzhe.net/api/proxy';
                 var url = apiUrl + '?url=' + encodeURIComponent(localUrl) + '&_t=' + new Date().getTime();
                 ajax(url, cb)
