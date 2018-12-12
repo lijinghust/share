@@ -147,6 +147,7 @@
                         'onMenuShareAppMessage',
                     ];
                 }
+                opts.debug = false;
                 opts.jsApiList = jsApiList;
                 wx.config(opts);
                 wx.ready(function(){
@@ -205,7 +206,7 @@
                 try {
                     window.mqq.invoke('data', 'setShareInfo', shareInfo);
                 } catch (e) {
-                    console.error(e);
+                    console.error('mqq invoke setShareInfo = ', e);
                 }
             }
         
