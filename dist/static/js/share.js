@@ -9,13 +9,13 @@
                     throw new TypeError('Cannot convert undefined or null to object');
                 }
 
-                const to = Object(target);
+                var to = Object(target);
 
-                for (let index = 1; index < arguments.length; index++) {
-                    const nextSource = arguments[index];
+                for (var index = 1; index < arguments.length; index++) {
+                    var nextSource = arguments[index];
 
                     if (nextSource != null) { // Skip over if undefined or null
-                        for (let nextKey in nextSource) {
+                        for (var nextKey in nextSource) {
                             // Avoid bugs when hasOwnProperty is shadowed
                             if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
                                 to[nextKey] = nextSource[nextKey];
@@ -71,10 +71,10 @@
         // 加载js脚本
         function loadjs(url, success, fail) {
             var script = document.createElement('script');
-            script.onload = () => {
+            script.onload = function(){
                 success();
             };
-            script.onerror = () => {
+            script.onerror = function(){
                 fail();
             };
             script.async = true;
@@ -94,7 +94,7 @@
         function compareVersions(v1, v2){
             var v1Parts = v1.split('.');
             var v2Parts = v2.split('.');
-            for (let i = 0; i < v2Parts.length; i++) {
+            for (var i = 0; i < v2Parts.length; i++) {
                 var a = parseInt(v2Parts[i], 10) || 0;
                 var b = parseInt(v1Parts[i], 10) || 0;
                 if (a > b) { return -1; }

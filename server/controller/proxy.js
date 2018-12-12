@@ -39,7 +39,7 @@ const sign = async function(url){
         'noncestr='+noncestr,
         'timestamp='+timestamp,
         'url='+decodeURIComponent(url)
-    ].join('&')
+    ];
     console.log(arr);
     const signature = sha1(arr.join('&'));
     return {
