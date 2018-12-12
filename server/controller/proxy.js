@@ -33,7 +33,7 @@ const sign = async function(url){
     const noncestr = Math.random().toString(36).substring(2);
     const json = JSON.parse(ret);
     const jsapi_ticket = json.ticket;
-    const timestamp = +new Date();
+    const timestamp = parseInt(+new Date()/1000);
     const arr = [
         'jsapi_ticket='+jsapi_ticket,
         'noncestr='+noncestr,
@@ -51,7 +51,7 @@ const sign = async function(url){
 }
 
 const proxy = async function(ctx, next){
-    const params = ctx.params;
+    const params = ctx.query;
     console.log(params)
     const ret = await sign(params.url);
     // console.log(ret)
